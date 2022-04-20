@@ -51,7 +51,7 @@ app.get('/', (req, res)=>{
     res.redirect('/books')
 })
 
-const port = process.env.PORT;
+const port = process.env.PORT || 3001;
 
 app.listen(port, () => {
     console.log('app is running! better go catch it on port', port);
