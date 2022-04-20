@@ -1,12 +1,12 @@
 // DEPENDENCIES
 const express = require('express');
+const app = express();
 const cors = require('cors');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override')
 const morgan = require('morgan');
 const { urlencoded } = require('express');
 const MongoDBStore = require('connect-mongodb-session')(session)
-const app = express();
 require('dotenv').config();
 app.use(cors());
 
@@ -31,6 +31,7 @@ db.on('disconnected', () => console.log('mongo disconnected'));
 const bookController = require('./controllers/bookController')
 
 // MIDDLEWARE
+app.use(require('./middleware/logger'))
 app.use(express.static("public"));
 app.use(morgan('short'));
 app.use(express.urlencoded({ extended: true }));
@@ -43,16 +44,6 @@ app.use(session({
     saveUninitialized: false,
     store: store
 }));
-app.use(async (req, res, next) => {
-    res.locals.isLoggedIn = req.session.isLoggedIn
-    if (req.session.isLoggedIn) {
-        const currentUser = await User.findById(req.session.userId)
-        res.locals.username = currentUser.username
-        res.locals.userId = req.session.userId.toString()
-    }
-    next()
-})
-
 
 // ROUTES
 app.use('/books', bookController)
