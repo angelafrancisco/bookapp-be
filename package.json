@@ -1,0 +1,31 @@
+{
+  "name": "bookapp-be",
+  "version": "1.0.0",
+  "description": ".ReadMe Book App - Capstone Project for General Assembly",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/angelafrancisco/bookapp-be.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/angelafrancisco/bookapp-be/issues"
+  },
+  "homepage": "https://github.com/angelafrancisco/bookapp-be#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-mongodb-session": "^3.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "express-session": "^1.17.2",
+    "method-override": "^3.0.0",
+    "mongo": "^0.1.0",
+    "mongoose": "^6.3.0",
+    "morgan": "^1.10.0"
+  }
+}
