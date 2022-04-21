@@ -26,7 +26,7 @@ router.post('/', async (req, res) => {
     }
 });
 
-// READ   : GET    '/books'          2/4 (INDEX)
+// READ ALL  : GET    '/books'          2/4 (INDEX)
 router.get('/', async (req, res) => {
     try {
         const books = await Book.find();
@@ -78,7 +78,7 @@ router.delete('/:id', async (req, res) => {
     }
 });
 
-// SHOW 1 BOOK   : GET    '/books/:id'
+// READ 1 BOOK   : GET    '/books/:id'
 router.get('/:id', async (req, res) => {
     try {
         const book = await Book.findById(req.params.id);
