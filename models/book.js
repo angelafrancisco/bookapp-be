@@ -6,7 +6,14 @@ const bookSchema = new Schema({
     author: { type: String },
     description: { type: String },
     image: { type: String },
-    read: { type: Boolean },
+    read: { 
+        type: String,
+        enum: [
+            "Read",
+            "Want to Read",
+            "Currently Reading"
+        ]
+    },
     listName: { type: String }
 }, { timestamps: true })
 

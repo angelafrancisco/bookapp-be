@@ -4,6 +4,7 @@
   "description": ".ReadMe Book App - Capstone Project for General Assembly",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

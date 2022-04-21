@@ -1,42 +1,35 @@
 // DEPENDENCIES
 const express = require('express');
-const app = express();
-const cors = require('cors');
-const mongoose = require('mongoose');
 const methodOverride = require('method-override')
-const morgan = require('morgan');
 const { urlencoded } = require('express');
+const session = require('express-session')
+const cors = require('cors');
+const morgan = require('morgan');
 const MongoDBStore = require('connect-mongodb-session')(session)
 require('dotenv').config();
+require('./db-utils/connect')
+const app = express();
 app.use(cors());
 
-// DATABASE
-const mongoURI = process.env.MONGO_URI;
+const User = require('./models/user')
 const store = new MongoDBStore({
     uri: process.env.MONGO_URI,
     collection: 'mySessions'
 });
-mongoose.connect(mongoURI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-},
-() => console.log('MongoDB connection established:', mongoURI)
-);
-const db = mongoose.connection;
-db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
-db.on('connected', () => console.log('mongo connected'));
-db.on('disconnected', () => console.log('mongo disconnected'));
+
+// MIDDLEWARE
+app.use(express.static("public"));
+app.use(require('./middleware/logger'))
+// const isLoggedIn = require('./middleware/isLoggedIn')
+// app.use(require('./middleware/isLoggedIn'))
+app.use(morgan('short'));
+app.use(methodOverride('_method'))
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 // CONTROLLERS
 const bookController = require('./controllers/bookController')
-
-// MIDDLEWARE
-app.use(require('./middleware/logger'))
-app.use(express.static("public"));
-app.use(morgan('short'));
-app.use(express.urlencoded({ extended: true }));
-app.use(methodOverride('_method'))
-app.use(express.json());
+const userController = require('./controllers/userController')
 
 app.use(session({
     secret: process.env.SESSION_SECRET,
@@ -45,11 +38,23 @@ app.use(session({
     store: store
 }));
 
+app.use(async (req, res, next) => {
+    res.locals.isLoggedIn = req.session.isLoggedIn
+    if (req.session.isLoggedIn) {
+        const currentUser = await User.findById(req.session.userId)
+        res.locals.username = currentUser.username
+        res.locals.userId = req.session.userId.toString()
+    }
+    next()
+})
+
 // ROUTES
 app.use('/books', bookController)
-app.get('/', (req, res)=>{
-    res.redirect('/books')
-})
+app.use('/user', userController)
+
+app.get('/', (req, res) => {
+    res.send('Hello World!');
+});
 
 const port = process.env.PORT || 3001;
 
