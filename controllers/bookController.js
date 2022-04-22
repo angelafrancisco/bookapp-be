@@ -26,7 +26,7 @@ router.post('/', async (req, res) => {
     }
 });
 
-// READ ALL  : GET    '/books'          2/4 (INDEX)
+// READ ALL  : GET    '/books'          2/4
 router.get('/', async (req, res) => {
     try {
         const books = await Book.find();
@@ -42,6 +42,21 @@ router.get('/', async (req, res) => {
     }
 });
 
+// READ 1 BOOK   : GET    '/books/:id'
+router.get('/:id', async (req, res) => {
+    try {
+        const book = await Book.findById(req.params.id);
+        res.send({
+            success: true,
+            data: book
+        });
+    } catch (err) {
+        res.send({
+            success: false,
+            data: err.message
+        });
+    }
+});
 
 // UPDATE : PUT    '/books/:id'      3/4
 router.put('/:id', async (req, res) => {
@@ -66,22 +81,6 @@ router.delete('/:id', async (req, res) => {
         if (!book) {
             throw new Error('Oops, no book with that ID here!');
         }
-        res.send({
-            success: true,
-            data: book
-        });
-    } catch (err) {
-        res.send({
-            success: false,
-            data: err.message
-        });
-    }
-});
-
-// READ 1 BOOK   : GET    '/books/:id'
-router.get('/:id', async (req, res) => {
-    try {
-        const book = await Book.findById(req.params.id);
         res.send({
             success: true,
             data: book
