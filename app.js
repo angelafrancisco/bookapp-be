@@ -11,12 +11,7 @@ require('./db-utils/connect')
 const app = express();
 app.use(cors());
 
-const User = require('./models/user')
 
-const store = new MongoDBStore({
-    uri: process.env.MONGO_URI,
-    collection: 'mySessions'
-});
 
 app.options("", cors());
 app.use(function (req, res, next) {
@@ -32,6 +27,12 @@ app.use(function (req, res, next) {
     }
 });
 
+const User = require('./models/user')
+
+const store = new MongoDBStore({
+    uri: process.env.MONGO_URI,
+    collection: 'mySessions'
+});
 app.use(express.static("public"));
 app.use(require('./middleware/logger'))
 // const isLoggedIn = require('./middleware/isLoggedIn')
