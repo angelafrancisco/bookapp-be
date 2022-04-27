@@ -12,12 +12,12 @@ const app = express();
 app.use(cors());
 
 const User = require('./models/user')
+
 const store = new MongoDBStore({
     uri: process.env.MONGO_URI,
     collection: 'mySessions'
 });
 
-// MIDDLEWARE
 app.use(express.static("public"));
 app.use(require('./middleware/logger'))
 // const isLoggedIn = require('./middleware/isLoggedIn')
@@ -27,7 +27,6 @@ app.use(methodOverride('_method'))
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// CONTROLLERS
 const bookController = require('./controllers/bookController')
 const userController = require('./controllers/userController')
 
@@ -48,7 +47,6 @@ app.use(async (req, res, next) => {
     next()
 })
 
-// ROUTES
 app.use('/books', bookController)
 app.use('/user', userController)
 
@@ -57,6 +55,7 @@ app.get('/', (req, res) => {
 });
 
 const port = process.env.PORT || 3001;
+
 app.listen(port, () => {
     console.log('app is running! better go catch it on port', port);
 });
