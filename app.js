@@ -10,8 +10,8 @@ require('dotenv').config();
 require('./db-utils/connect')
 const app = express();
 app.use(cors());
-
 const User = require('./models/user')
+
 
 const store = new MongoDBStore({
     uri: process.env.MONGO_URI,
