@@ -8,6 +8,7 @@
 ## Deployed Website
 
 Hosted via Heroku: 
+
 https://readme-bookapp.herokuapp.com/
 
 
@@ -36,11 +37,9 @@ https://readme-bookapp.herokuapp.com/
 - User can save a book from the search results along with including book status and custom book list, and it will show on the "My Bookshelf" section.
 
 
-<!-- ## Wireframing
+## Wireframing
 
-- Homepage (Images here)
-- Bookshelf (Images here)
-- Search (Images here) -->
+_See Front-End Repository for specific wireframing: https://github.com/angelafrancisco/bookapp-fe_
 
 
 ## Capstone Project MVP Goals:
