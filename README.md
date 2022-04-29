@@ -7,12 +7,13 @@
 
 ## Deployed Website
 
-Hosted via Heroku: https://readme-bookapp.herokuapp.com/
+Hosted via Heroku: 
+https://readme-bookapp.herokuapp.com/
 
 
 ## Technology (MERN Stack)
 
-- HTML | CSS | Javascript
+- HTML | CSS | SASS | Javascript
 - React
 - Node | Express
 - MongoDB | Mongoose
@@ -35,12 +36,11 @@ Hosted via Heroku: https://readme-bookapp.herokuapp.com/
 - User can save a book from the search results along with including book status and custom book list, and it will show on the "My Bookshelf" section.
 
 
-
-## Wireframing
+<!-- ## Wireframing
 
 - Homepage (Images here)
 - Bookshelf (Images here)
-- Search (Images here)
+- Search (Images here) -->
 
 
 ## Capstone Project MVP Goals:
@@ -55,11 +55,17 @@ Hosted via Heroku: https://readme-bookapp.herokuapp.com/
 
 ## Capstone Project Stretch Goals:
 
+- SASS
 - Responsive Design
 - React Router Links
+- Saving API book results to "My Bookshelf"
+
+
+## Future Features:
+
+- Book recommendations (vacation reads, YA fantasy series, etc.)
 - Organize books by custom list name
     - Show first 3-4 books, link to see full list on new page
-- Book recommendations (vacation reads, YA fantasy series, etc.)
 
 
 ## Model
@@ -81,16 +87,6 @@ const bookSchema = new Schema({
     listName: { type: String }
 }, { timestamps: true })
 ```
-
-## Run Locally
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
 
 ## Credits/Acknowledgements
 

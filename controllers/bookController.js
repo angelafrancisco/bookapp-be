@@ -12,7 +12,7 @@ const User = require('../models/user')
 router.post('/', async (req, res) => {
     try {
         const newBook = await Book.create(req.body);
-        console.log(newBook)
+        // console.log(newBook)
         // console.log(req.session.user._id)
         res.send({
             success: true,
