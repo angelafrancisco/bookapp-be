@@ -1,14 +1,12 @@
-# Capstone Project: MERN Full-Stack App
+# .readME Book App: MERN Full-Stack App
 
 **Week 11-12: April 2022. Final Capstone Project for General Assembly.**
 
-.ReadMe book app: A full-stack MERN (React, Node/Express, MongoDB) web application to search and save books for vacation, fun, or anytime you need a reminder of what your next book should be!
-<!-- App name ideas: Bookasauraus Recs, BookWorm, Book-Hook-Up, .ReadMe -->
+.readMe book app: A full-stack MERN (React, Node/Express, MongoDB) web application to search and save books for vacation, fun, or anytime you need a reminder of what your next book should be!
 
 ## Deployed Website
 
-Hosted via Heroku: 
-
+Hosted via Heroku:\
 https://readme-bookapp.herokuapp.com/
 
 
@@ -22,8 +20,10 @@ https://readme-bookapp.herokuapp.com/
 
 ## Repositories
 
-- Front-End: https://github.com/angelafrancisco/bookapp-fe
-- Back-End: https://github.com/angelafrancisco/bookapp-be
+- Back-End (currently here): 
+    - https://github.com/angelafrancisco/bookapp-be
+- Front-End (see wireframing and image credits, etc.): 
+    - https://github.com/angelafrancisco/bookapp-fe
 
 
 ## User Stories
@@ -35,11 +35,6 @@ https://readme-bookapp.herokuapp.com/
 - Once a book is added, it will show the cover image on the "My Bookshelf" section, and user can click to edit or delete a specific book.
 - User can search for a book by title or author (via Google Books API) and see results.
 - User can save a book from the search results along with including book status and custom book list, and it will show on the "My Bookshelf" section.
-
-
-## Wireframing
-
-_See Front-End Repository for specific wireframing: https://github.com/angelafrancisco/bookapp-fe_
 
 
 ## Capstone Project MVP Goals:
@@ -62,9 +57,13 @@ _See Front-End Repository for specific wireframing: https://github.com/angelafra
 
 ## Future Features:
 
+- Improved Accessibility
 - Book recommendations (vacation reads, YA fantasy series, etc.)
-- Organize books by custom list name
-    - Show first 3-4 books, link to see full list on new page
+- Organize/Sort books by:
+    - List name: show first 3-4 books, link to see full list on new page
+    - Read status
+- User model and authentication (currently created a temporary "login" React state)
+- Research browser warning for "mixed content" requesting insecure element URL and auto converting to HTTPS
 
 
 ## Model
@@ -86,9 +85,3 @@ const bookSchema = new Schema({
     listName: { type: String }
 }, { timestamps: true })
 ```
-
-## Credits/Acknowledgements
-
-- Favicon and Logo: [Favicon.io](https://favicon.io/emoji-favicons/books/)
-- Icons: [FontAwesome](https://fontawesome.com/icons), [Flaticon](https://www.flaticon.com/) via [Freepik](https://www.freepik.com) 
-- Book Background: [Alfons Morales via Unsplash](https://unsplash.com/@alfonsmc10?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
