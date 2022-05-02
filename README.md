@@ -49,6 +49,7 @@ https://readme-bookapp.herokuapp.com/
 
 ## Capstone Project Stretch Goals:
 
+- Wireframing
 - SASS
 - Responsive Design
 - React Router Links
