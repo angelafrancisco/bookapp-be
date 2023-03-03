@@ -6,8 +6,8 @@
 
 ## Deployed Website
 
-Hosted via Heroku:\
-https://readme-bookapp.herokuapp.com/
+Hosted via Netlify:\
+https://bookapp-capstone.netlify.app/
 
 
 ## Technology (MERN Stack)
